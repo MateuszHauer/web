@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chociszewo 100, 66-304</title>
+</head>
+
+<body>
+    <div class="letter-container" onclick="openLetter()">
+        <div class="envelope"></div>
+        <div class="heart"><img src="images/jezor.jpg"></div>
+    </div>
+
+    <div style="display: none;" class="popup" id="popup">
+        <h1>a teraz wytęż swe szare komórki</h1>
+        <h3>jak odpowiesz na 2 pytania czeka Cię niespodzianka!</h3>
+        <p>twój nick na ig&#128541;</p>
+        <input type="password" id="passwordInput" placeholder="Paula myśli...">
+        <button onclick="checkPassword()">SIMPLY STRZAŁ</button>
+        <p id="error" class="error"></p>
+    </div>
+
+    <script>
+       let errorMessages = [
+    "nope",
+    "ajajaj",
+    "troche blisko",
+    "no i tablada..."
+];
+
+let errorIndex = 0;
+
+function openLetter() {
+    document.getElementById('popup').style.display = 'block';
+}
+
+function checkPassword() {
+    var password = document.getElementById('passwordInput').value;
+    var correctPassword = "siusiaj";
+    var errorElement = document.getElementById('error');
+
+    if (password === correctPassword) {
+        window.location.href = "przejscie 1.html";
+    } else {
+        errorElement.textContent = errorMessages[errorIndex];
+        errorElement.style.display = "block";
+
+        errorIndex = (errorIndex + 1) % errorMessages.length;
+
+        setTimeout(function() {
+            errorElement.style.display = "none";
+        }, 2000);
+    }
+}
+    </script>
+</body>
+
+</html>
