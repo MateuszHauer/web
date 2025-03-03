@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chociszewo 100, 66-304</title>
+</head>
+
+<body>
+    <div class="popup" id="popup">
+        <h1>AJJ NO I TUTAJ LEKKA KRAKSA</h1>
+        <h3>ponieważ to nie jest kopalnia złota, lecz kopalnia diamentów...</h3>
+        <h3>dlatego kopalnia ta jest bardziej zabezpieczona... musisz się jeszcze trochę potrudzić &#128538;</h3>
+        <p>jeden z twoich pierwszych nicków</p>
+        <input type="password" id="passwordInput" placeholder="Paula myśli...">
+        <button onclick="checkPassword()">SIMPLY STRZAŁ</button>
+        <p id="error" class="error"></p>
+    </div>
+
+    <script>
+       let errorMessages = [
+    "nope",
+    "ajajaj",
+    "troche blisko",
+    "no i tablada..."
+];
+
+let errorIndex = 0;
+
+function checkPassword() {
+    var password = document.getElementById('passwordInput').value;
+    var correctPassword = "purina";
+    var errorElement = document.getElementById('error');
+
+    if (password === correctPassword) {
+        window.location.href = "przejscie 3.html";
+    } else {
+        errorElement.textContent = errorMessages[errorIndex];
+        errorElement.style.display = "block";
+
+        errorIndex = (errorIndex + 1) % errorMessages.length;
+
+        setTimeout(function() {
+            errorElement.style.display = "none";
+        }, 2000);
+    }
+}
+    </script>
+</body>
+
+</html>
